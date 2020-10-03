@@ -1,0 +1,29 @@
+service: boilerplate-node
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: eu-central-1
+  environment:
+    NODE_ENV: ${opt:stage}
+    MONGODB_URL: ${opt:db-url, ''}
+
+plugins:
+  - serverless-api-compression
+  - serverless-offline
+
+custom:
+  contentCompression: 1024
+
+functions:
+  rest:
+    handler: dist/handler.rest
+    timeout: 20
+    events:
+      - http:
+          path: /{proxy+}
+          method: ANY
+          cors: true
+          request:
+            parameters:
+              paths:
+                proxy: true

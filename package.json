@@ -1,0 +1,30 @@
+{
+  "name": "boilerplate-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "npm run build && serverless offline start --stage=local",
+    "deploy": "npm run build && sls deploy --stage=prod --aws-profile=voicy"
+  },
+  "author": "Artem Kanaki",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "roumen": "^1.0.7"
+  },
+  "devDependencies": {
+    "@types/node": "^13.13.5",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.2",
+    "prettier": "^2.0.5",
+    "serverless": "^1.70.0",
+    "serverless-api-compression": "^1.0.1",
+    "serverless-offline": "^6.1.5",
+    "ts-node": "^8.10.1",
+    "tslint": "^6.1.2",
+    "tslint-etc": "^1.10.1",
+    "typescript": "^3.8.3"
+  }
+}
